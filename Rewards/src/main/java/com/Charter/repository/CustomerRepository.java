@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RewardsRepository extends JpaRepository<Customer, String>
+public interface CustomerRepository extends JpaRepository<Customer, String>
 {
     @Query("SELECT s FROM Rewards s WHERE s.username=?1 AND s.password=?2")
     Customer login(String username, String password);

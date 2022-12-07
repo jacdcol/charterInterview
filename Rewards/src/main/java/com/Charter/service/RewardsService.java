@@ -1,15 +1,16 @@
 package com.Charter.service;
 
 import com.Charter.entity.Customer;
-import com.Charter.repository.RewardsRepository;
+import com.Charter.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RewardsService {
     @Autowired
-    RewardsRepository rewardsRepository;
+    CustomerRepository customerRepository;
 
-    public Customer loginCustomer(Customer customer) {rewardsRepository.login(customer.getUsername(), customer.getPassword());}
-    public void updateRewardsPoints(Customer customer) {rewardsRepository.updatePoints(customer);}
+    public Customer loginCustomer(Customer customer) {return customerRepository.login(customer.getRewards().getUsername(), customer.getRewards().getPassword());}
+    public void updateRewardsPoints(Customer customer) {
+        customerRepository.updatePoints(customer);}
 }
