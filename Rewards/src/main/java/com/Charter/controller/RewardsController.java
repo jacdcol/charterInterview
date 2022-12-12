@@ -23,6 +23,7 @@ public class RewardsController {
     @RequestMapping(value="/login", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE, method=RequestMethod.POST)
     public ResponseEntity<Rewards> handleLogin(@RequestBody Rewards rewards)
     {
+        //System.out.println(rewards);
         Rewards rewardsLogin = rewardsService.loginRewards(rewards);
         try {
             if(rewardsLogin != null) {
